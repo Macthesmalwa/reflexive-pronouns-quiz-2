@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- htmlaunch:enhanced:v2 -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22hsl(53%2C72%25%2C58%25)%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22hsl(83%2C72%25%2C44%25)%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2246%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-sans-serif%2Csystem-ui%2C-apple-system%2CSegoe%20UI%2Csans-serif%22%20font-size%3D%2238%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%3ER%3C%2Ftext%3E%3C%2Fsvg%3E">
+<meta name="theme-color" content="#14417b">
+<meta name="description" content="Reflexive Pronouns Quiz | deployed with HTMLaunch">
+<link rel="canonical" href="https://Macthesmalwa.github.io/reflexive-pronouns-quiz-2/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Reflexive Pronouns Quiz">
+<meta property="og:title" content="Reflexive Pronouns Quiz">
+<meta property="og:description" content="Reflexive Pronouns Quiz | deployed with HTMLaunch">
+<meta property="og:url" content="https://Macthesmalwa.github.io/reflexive-pronouns-quiz-2/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s.wordpress.com/mshots/v1/https%3A%2F%2FMacthesmalwa.github.io%2Freflexive-pronouns-quiz-2%2F?w=1200&h=630">
+<meta property="og:image:alt" content="Reflexive Pronouns Quiz">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reflexive Pronouns Quiz">
+<meta name="twitter:description" content="Reflexive Pronouns Quiz | deployed with HTMLaunch">
+<meta name="twitter:image" content="https://s.wordpress.com/mshots/v1/https%3A%2F%2FMacthesmalwa.github.io%2Freflexive-pronouns-quiz-2%2F?w=1200&h=630">
+<meta name="twitter:image:alt" content="Reflexive Pronouns Quiz">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexive Pronouns Quiz</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --correct-bg: #dcfce7;
+            --correct-border: #22c55e;
+            --correct-text: #166534;
+            --wrong-bg: #fee2e2;
+            --wrong-border: #ef4444;
+            --wrong-text: #991b1b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .progress-bar-container {
+            position: sticky;
+            top: 0;
+            background: var(--card-bg);
+            padding: 12px 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .progress-text {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .progress-track {
+            flex-grow: 1;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            margin: 0 15px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: border-color 0.2s;
+        }
+
+        .question-card.unanswered-highlight {
+            border: 2px solid var(--wrong-border);
+            background-color: #fffafb;
+        }
+
+        .question-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        .options-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: #f1f5f9;
+        }
+
+        .option-label input[type="radio"] {
+            margin-right: 12px;
+            accent-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* Feedback styling after submission */
+        .feedback-box {
+            margin-top: 15px;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background-color: var(--correct-bg);
+            border-left: 4px solid var(--correct-border);
+            color: var(--correct-text);
+        }
+
+        .feedback-box.incorrect {
+            display: block;
+            background-color: var(--wrong-bg);
+            border-left: 4px solid var(--wrong-border);
+            color: var(--wrong-text);
+        }
+
+        .option-label.correct-choice {
+            background-color: var(--correct-bg);
+            border-color: var(--correct-border);
+            font-weight: 600;
+        }
+
+        .option-label.wrong-choice {
+            background-color: var(--wrong-bg);
+            border-color: var(--wrong-border);
+        }
+
+        .controls {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .error-msg {
+            color: var(--wrong-text);
+            background-color: var(--wrong-bg);
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-weight: 500;
+            display: none;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        button:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        #reset-btn {
+            background-color: #475569;
+            margin-left: 10px;
+            display: none;
+        }
+
+        #reset-btn:hover {
+            background-color: #334155;
+        }
+
+        .score-card {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+            border: 2px solid var(--primary);
+            text-align: center;
+        }
+
+        .score-card h2 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .score-card p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Reflexive Pronouns Mastery Quiz</h1>
+        <p>Complete all 25 multiple-choice questions below. You must answer every question before submitting.</p>
+    </header>
+
+    <div class="progress-bar-container">
+        <span class="progress-text">Progress: <span id="answered-count">0</span>/25</span>
+        <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-text" id="progress-percent">0%</span>
+    </div>
+
+    <div id="score-board" class="score-card">
+        <h2 id="final-score">Your Score: 0 / 25</h2>
+        <p id="score-remark"></p>
+    </div>
+
+    <form id="quiz-form">
+        <div id="questions-container"></div>
+
+        <div class="controls">
+            <div id="validation-error" class="error-msg">Please answer all 25 questions before submitting! Unanswered questions are highlighted in red.</div>
+            <button type="submit" id="submit-btn">Submit Quiz</button>
+            <button type="button" id="reset-btn" onclick="resetQuiz()">Retake Quiz</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const quizData = [
+        {
+            q: "1. I accidentally burned ________ while cooking dinner last night.",
+            options: ["myself", "me", "mine", "meself"],
+            answer: 0,
+            explanation: "The subject is 'I', so the matching singular first-person reflexive pronoun is 'myself'."
+        },
+        {
+            q: "2. She looked at ________ in the mirror before walking onto the stage.",
+            options: ["her", "hers", "herself", "himself"],
+            answer: 2,
+            explanation: "'She' is the subject; the action reflects back onto her, requiring 'herself'."
+        },
+        {
+            q: "3. Be careful with that sharp knife, or you might cut ________.",
+            options: ["you", "yourself", "yourselves", "your"],
+            answer: 1,
+            explanation: "Addressing a single person ('that sharp knife'), the reflexive pronoun is 'yourself'."
+        },
+        {
+            q: "4. The cat cleaned ________ thoroughly after eating its meal.",
+            options: ["itself", "it's", "himself", "its"],
+            answer: 0,
+            explanation: "For an animal of unspecified gender or an object ('The cat'), use 'itself'."
+        },
+        {
+            q: "5. We enjoyed ________ tremendously at the music festival.",
+            options: ["us", "ourself", "ourselves", "themselves"],
+            answer: 2,
+            explanation: "'We' is plural, so the correct plural reflexive pronoun is 'ourselves' ('ourself' is non-standard)."
+        },
+        {
+            q: "6. He taught ________ how to play the acoustic guitar using online videos.",
+            options: ["him", "his", "himself", "hisself"],
+            answer: 2,
+            explanation: "'Hisself' is grammatically incorrect. The proper third-person masculine reflexive pronoun is 'himself'."
+        },
+        {
+            q: "7. The children behaved ________ very well during the museum tour.",
+            options: ["themself", "themselves", "theirself", "them"],
+            answer: 1,
+            explanation: "'The children' is plural ('they'), which pairs with 'themselves'."
+        },
+        {
+            q: "8. Welcome to the party, everyone! Please help ________ to the snacks.",
+            options: ["yourself", "yourselves", "themselves", "ourselves"],
+            answer: 1,
+            explanation: "Because 'everyone' addresses a group of people ('you' plural), 'yourselves' is required."
+        },
+        {
+            q: "9. My brother and I built this wooden treehouse all by ________.",
+            options: ["myself", "himself", "ourselves", "themselves"],
+            answer: 2,
+            explanation: "'My brother and I' equals 'we', so the corresponding reflexive pronoun is 'ourselves'."
+        },
+        {
+            q: "10. The automatic door opens by ________ whenever someone approaches.",
+            options: ["itself", "himself", "themselves", "it"],
+            answer: 0,
+            explanation: "'The automatic door' is a singular inanimate object ('it'), taking 'itself'."
+        },
+        {
+            q: "11. One should always remind ________ to stay hydrated during hot weather.",
+            options: ["himself", "themselves", "oneself", "yourself"],
+            answer: 2,
+            explanation: "When the indefinite pronoun 'one' is the subject, its matching reflexive pronoun is 'oneself'."
+        },
+        {
+            q: "12. Sarah and Mark blamed ________ for missing the early morning flight.",
+            options: ["themself", "themselves", "herself", "himself"],
+            answer: 1,
+            explanation: "'Sarah and Mark' is a plural subject ('they'), requiring 'themselves'."
+        },
+        {
+            q: "13. Did you paint the entire living room by ________, Tom?",
+            options: ["yourselves", "you", "yourself", "myself"],
+            answer: 2,
+            explanation: "The question is directed at one person ('Tom'), so 'yourself' is correct."
+        },
+        {
+            q: "14. The CEO ________ announced the new company policy at the meeting.",
+            options: ["himself", "hisself", "itself", "themselves"],
+            answer: 0,
+            explanation: "Used here for emphasis (intensive pronoun), 'himself' refers back to the singular noun 'The CEO'."
+        },
+        {
+            q: "15. Why are you talking to ________ in the corner?",
+            options: ["you", "yourself", "yours", "myself"],
+            answer: 1,
+            explanation: "The subject 'you' is both performing and receiving the action of talking, requiring 'yourself'."
+        },
+        {
+            q: "16. The computer system will reboot ________ once the update finishes.",
+            options: ["it", "its", "itself", "themselves"],
+            answer: 2,
+            explanation: "'The computer system' is singular ('it'), so 'itself' is the proper reflexive form."
+        },
+        {
+            q: "17. Ladies and gentlemen, please make ________ comfortable.",
+            options: ["yourself", "yourselves", "themselves", "ourselves"],
+            answer: 1,
+            explanation: "'Ladies and gentlemen' addresses multiple people, requiring the plural 'yourselves'."
+        },
+        {
+            q: "18. She bought ________ a new laptop as a reward for graduating.",
+            options: ["her", "herself", "hers", "she"],
+            answer: 1,
+            explanation: "'She' is the subject and the indirect object (recipient), so 'herself' is required."
+        },
+        {
+            q: "19. They had nobody to blame except ________ for the disorganized event.",
+            options: ["them", "theirself", "themselves", "theirselves"],
+            answer: 2,
+            explanation: "'Theirselves' and 'theirself' are non-standard. 'Themselves' is the correct plural form for 'They'."
+        },
+        {
+            q: "20. I don't need any help; I can carry these boxes ________.",
+            options: ["me", "mine", "myself", "ourselves"],
+            answer: 2,
+            explanation: "Referring back to the subject 'I', 'myself' emphasizes independent action."
+        },
+        {
+            q: "21. The wounded bird struggled to lift ________ off the ground.",
+            options: ["itself", "himself", "it", "themselves"],
+            answer: 0,
+            explanation: "'The wounded bird' is a singular noun treated as 'it', taking 'itself'."
+        },
+        {
+            q: "22. John pridefully considers ________ to be the best chess player in school.",
+            options: ["him", "himself", "hisself", "itself"],
+            answer: 1,
+            explanation: "The subject 'John' is the object of his own consideration, requiring 'himself'."
+        },
+        {
+            q: "23. After hiking for six hours, we found ________ completely exhausted.",
+            options: ["us", "ourself", "ourselves", "themselves"],
+            answer: 2,
+            explanation: "The subject is 'we', so the plural reflexive pronoun 'ourselves' is required."
+        },
+        {
+            q: "24. A person who talks to ________ is often just thinking out loud.",
+            options: ["themself", "himself or herself", "itself", "both A and B are accepted in modern usage"],
+            answer: 3,
+            explanation: "In modern English, both 'himself or herself' (traditional) and singular 'themself' (gender-neutral) are accepted for 'a person'."
+        },
+        {
+            q: "25. History often repeats ________ when people fail to learn from the past.",
+            options: ["itself", "herself", "themselves", "it"],
+            answer: 0,
+            explanation: "'History' is an abstract singular noun ('it'), so 'itself' is the correct reflexive pronoun."
+        }
+    ];
+
+    const questionsContainer = document.getElementById('questions-container');
+    const quizForm = document.getElementById('quiz-form');
+    const answeredCountEl = document.getElementById('answered-count');
+    const progressFillEl = document.getElementById('progress-fill');
+    const progressPercentEl = document.getElementById('progress-percent');
+    const validationErrorEl = document.getElementById('validation-error');
+    const scoreBoardEl = document.getElementById('score-board');
+    const finalScoreEl = document.getElementById('final-score');
+    const scoreRemarkEl = document.getElementById('score-remark');
+    const submitBtn = document.getElementById('submit-btn');
+    const resetBtn = document.getElementById('reset-btn');
+
+    // Render all 25 questions
+    function renderQuiz() {
+        questionsContainer.innerHTML = '';
+        quizData.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.id = `q-card-${index}`;
+
+            const title = document.createElement('div');
+            title.className = 'question-title';
+            title.textContent = item.q;
+            card.appendChild(title);
+
+            const optionsList = document.createElement('div');
+            optionsList.className = 'options-list';
+
+            item.options.forEach((opt, optIndex) => {
+                const label = document.createElement('label');
+                label.className = 'option-label';
+                label.id = `label-${index}-${optIndex}`;
+
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `question-${index}`;
+                radio.value = optIndex;
+                radio.addEventListener('change', () => handleOptionSelect(index));
+
+                label.appendChild(radio);
+                label.appendChild(document.createTextNode(opt));
+                optionsList.appendChild(label);
+            });
+
+            card.appendChild(optionsList);
+
+            const feedback = document.createElement('div');
+            feedback.className = 'feedback-box';
+            feedback.id = `feedback-${index}`;
+            card.appendChild(feedback);
+
+            questionsContainer.appendChild(card);
+        });
+    }
+
+    // Update progress bar and remove error highlight when an option is picked
+    function handleOptionSelect(questionIndex) {
+        const card = document.getElementById(`q-card-${questionIndex}`);
+        card.classList.remove('unanswered-highlight');
+
+        let answeredCount = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            if (document.querySelector(`input[name="question-${i}"]:checked`)) {
+                answeredCount++;
+            }
+        }
+
+        const percentage = Math.round((answeredCount / quizData.length) * 100);
+        answeredCountEl.textContent = answeredCount;
+        progressFillEl.style.width = `${percentage}%`;
+        progressPercentEl.textContent = `${percentage}%`;
+
+        if (answeredCount === quizData.length) {
+            validationErrorEl.style.display = 'none';
+        }
+    }
+
+    // Validate all questions answered & grade quiz
+    quizForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let unansweredIndices = [];
+        for (let i = 0; i < quizData.length; i++) {
+            const selected = document.querySelector(`input[name="question-${i}"]:checked`);
+            const card = document.getElementById(`q-card-${i}`);
+            if (!selected) {
+                unansweredIndices.push(i);
+                card.classList.add('unanswered-highlight');
+            } else {
+                card.classList.remove('unanswered-highlight');
+            }
+        }
+
+        // Prevent submission if any question is unanswered
+        if (unansweredIndices.length > 0) {
+            validationErrorEl.style.display = 'block';
+            document.getElementById(`q-card-${unansweredIndices[0]}`).scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+            return;
+        }
+
+        validationErrorEl.style.display = 'none';
+        gradeQuiz();
+    });
+
+    function gradeQuiz() {
+        let score = 0;
+
+        quizData.forEach((item, index) => {
+            const selectedInput = document.querySelector(`input[name="question-${index}"]:checked`);
+            const userAnswer = parseInt(selectedInput.value, 10);
+            const feedbackEl = document.getElementById(`feedback-${index}`);
+            const allRadios = document.querySelectorAll(`input[name="question-${index}"]`);
+
+            // Disable inputs after submission
+            allRadios.forEach(radio => radio.disabled = true);
+
+            const correctLabel = document.getElementById(`label-${index}-${item.answer}`);
+            correctLabel.classList.add('correct-choice');
+
+            if (userAnswer === item.answer) {
+                score++;
+                feedbackEl.className = 'feedback-box correct';
+                feedbackEl.innerHTML = `<strong>Correct!</strong> ${item.explanation}`;
+            } else {
+                const wrongLabel = document.getElementById(`label-${index}-${userAnswer}`);
+                wrongLabel.classList.add('wrong-choice');
+                feedbackEl.className = 'feedback-box incorrect';
+                feedbackEl.innerHTML = `<strong>Incorrect.</strong> The correct answer is <em>"${item.options[item.answer]}"</em>. ${item.explanation}`;
+            }
+        });
+
+        // Display final marks and remark
+        const percentage = Math.round((score / quizData.length) * 100);
+        finalScoreEl.textContent = `Your Marks: ${score} / ${quizData.length} (${percentage}%)`;
+
+        if (percentage >= 90) {
+            scoreRemarkEl.textContent = "Outstanding! You have mastered reflexive pronouns.";
+        } else if (percentage >= 75) {
+            scoreRemarkEl.textContent = "Great job! Review the feedback below for the few you missed.";
+        } else if (percentage >= 50) {
+            scoreRemarkEl.textContent = "Good effort! Check the explanations below to strengthen your grammar.";
+        } else {
+            scoreRemarkEl.textContent = "Keep practicing! Read through each explanation below and try again.";
+        }
+
+        scoreBoardEl.style.display = 'block';
+        submitBtn.disabled = true;
+        resetBtn.style.display = 'inline-block';
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+        scoreBoardEl.style.display = 'none';
+        submitBtn.disabled = false;
+        resetBtn.style.display = 'none';
+        validationErrorEl.style.display = 'none';
+        answeredCountEl.textContent = '0';
+        progressFillEl.style.width = '0%';
+        progressPercentEl.textContent = '0%';
+        renderQuiz();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Initialize quiz on page load
+    renderQuiz();
+</script>
+
+</body>
+</html>
+
